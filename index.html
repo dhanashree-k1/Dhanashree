@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Boston Housing Price Prediction</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffb6c1, #dda0dd);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 350px;
+      max-width: 90%;
+    }
+
+    h2 {
+      text-align: center;
+      color: #c71585;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #800080;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #dda0dd;
+      border-radius: 8px;
+      transition: 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: #ff69b4;
+      outline: none;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #db7093;
+    }
+
+    h3 {
+      text-align: center;
+      margin-top: 20px;
+      color: #d63384;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Boston Housing Price Prediction</h2>
+    <form action="/predict" method="post">
+      <label for="CRIM">CRIM:</label>
+      <input type="text" name="CRIM" required>
+
+      <label for="ZN">ZN:</label>
+      <input type="text" name="ZN" required>
+
+      <label for="INDUS">INDUS:</label>
+      <input type="text" name="INDUS" required>
+
+      <label for="CHAS">CHAS:</label>
+      <input type="text" name="CHAS" required>
+
+      <label for="NOX">NOX:</label>
+      <input type="text" name="NOX" required>
+
+      <label for="RM">RM:</label>
+      <input type="text" name="RM" required>
+
+      <label for="AGE">AGE:</label>
+      <input type="text" name="AGE" required>
+
+      <label for="DIS">DIS:</label>
+      <input type="text" name="DIS" required>
+
+      <label for="RAD">RAD:</label>
+      <input type="text" name="RAD" required>
+
+      <label for="TAX">TAX:</label>
+      <input type="text" name="TAX" required>
+
+      <label for="PTRATIO">PTRATIO:</label>
+      <input type="text" name="PTRATIO" required>
+
+      <label for="B">B:</label>
+      <input type="text" name="B" required>
+
+      <label for="LSTAT">LSTAT:</label>
+      <input type="text" name="LSTAT" required>
+
+      <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+    <h3>{{ prediction_text }}</h3>
+    {% endif %}
+  </div>
+</body>
+</html>
